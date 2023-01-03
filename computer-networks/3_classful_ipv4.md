@@ -23,4 +23,4 @@ Class C: (192.168.0.0 - 192.168.255.0)/24
 - Host's own address. Assigned by OS
 - Any packet sent will not go over the network or (NIC)interface. It's instead routed back to the OS itself
 - Useful for diagnosis of TCP/IP of OS
-- Usually in b/w `127.0.0.0` - `127.255.255.255`
+- Reserved IP range: `127.0.0.0` - `127.255.255.255`. Ignore first & last IP as they are reserved. Any packet sent to the rest of IP's will simply route back to the host OS itself
