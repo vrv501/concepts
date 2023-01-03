@@ -7,8 +7,8 @@ Theoretical architecture of protocols governing network communication
 |6              | **P**resentation    | Data       | Host        | Data encoding, de/compression, de,encryption | TLS, SSL(encryption/decryption), Formats: XML, HTML, JPEG, PNG, ASCII etc |
 |5              | **S**ession         | Data       | Host        | Maintainance of sessions |    Simplex, Duplex |
 |4              | **T**ransport       | Segments   | Host        | Error control & Data flow for devices residing in different networks. Port addressing | TCP, UDP |
-|3              | **N**etwork         | Packets    | Network     | Logical Addressing, Routing | IP, ICMP, IDMP |  
-|2              | **D**atalink        | Frames     | Network     | Error control & Data flow for devices residing in same network.Physical addressing. LLC & MAC(CSMA) | ARP, RARP | 
+|3              | **N**etwork         | Packets    | Network     | Logical Addressing, Routing | IP, ICMP, IGMP, ping |  
+|2              | **D**atalink        | Frames     | Network     | Error control & Data flow for devices residing in same network.Physical addressing. LLC & MAC(CSMA/CD - wired, /CA - wireless) | ARP, RARP | 
 |1              | **P**hysical        | Bits       | Network     |  Wired/Wireless network topologies | | 
 
 **TCP/IP**:  
@@ -33,6 +33,8 @@ Internet based on this architecture
 - 4 byte logical address assigned to network interface. 
 - Represented using decimal digits
 - OSI Layer 3 address
+- Network portion + Host protion = IP address
+  - Network portion is decided by subnet mask
 
 **Wireless Topologies**
 - Ad-Hoc (Basically P2P)
