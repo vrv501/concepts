@@ -22,6 +22,7 @@
 - These logical LAN's & ports on switches are assigned a **VLAN ID** which is used for inter VLAN communication
 - Devices on different VLAN's can't communicate unless explicit setup is done
 - Helps segment physical LAN by roles (Ex: HR, Accounting etc)  
+
 ![VLAN Image](images/vlan.jpg)
 
 **VLAN with multiple switches**:
@@ -30,7 +31,7 @@
 - When the compuetr on one switch wants to communicate with the other conneected to different switch, it has to tag the frame with VLANID
 - This VLAN ID is used by trunk port to forward it to the right switch and that switch uses this ID to forward the frame to right port
 - Untagged frames can be configured to be sent to native VLAN which is done on trunk port  
-![VLAN Image](images/vlan_multiple.jpg)
 
+![VLAN Image](images/vlan_multiple.jpg)
 
   
