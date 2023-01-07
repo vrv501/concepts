@@ -10,6 +10,9 @@
 - Since no broadcast, network performance is much better
 - Builds up MAC/CAM(Content addressable memory) table to remmeber MAC address of device connected to ports
 - Break up collision domains. However collisions can still occur. Use CSMA/CD to mitigate this issue
+- Types:
+  - Managed (Expensive, have dedicated setups)
+  - Unmanaged (Plug-n-Play)
 
 **Wireless Access Point(WAP)**:
 - Layer 2 device
@@ -20,6 +23,7 @@
 - Layer 3 device
 - Routes traffic for devices in same or different networks
 - Uses routing protocols to determine path of packets
+- Breakup Broadcast domains
 
 **Modem**:
 - Modulate/Demodulate analog to digital signals
