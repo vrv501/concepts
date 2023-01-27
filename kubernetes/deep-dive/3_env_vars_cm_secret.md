@@ -43,7 +43,7 @@
 
 ## Secrets
 - Key-value store except values are base64 encoded
-- `kubectl create secret secret-name --from-literal key=value --dry-run=client -o yaml > cm.yml` -- values need not be base64 encoded while using imperative commands
+- `kubectl create secret generic secret-name --from-literal key=value --dry-run=client -o yaml > cm.yml` -- values need not be base64 encoded while using imperative commands
 - To mount secret into container, use -- Note: Each key is mounted as file, whose content is value
   ```yaml
   spec:
@@ -76,3 +76,4 @@
         name: secret-name
   ```
 - When editing the manifest of secret, always ensure if you're adding new key & values, values are base64 encoded
+- Secrets of type "generic" is for KV store, "tls" for storing certificates & keys
