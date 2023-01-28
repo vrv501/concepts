@@ -42,6 +42,8 @@
       operator: Equal
       effect: taint-effect
   ```
+- You can prevent scheduling of new pods altogether on nodes using. 
+`kubectl cordon Node-Name`. Similarly you can undo this by `uncordon`
 
 ## NodeSelectors & Affinity
 - These govern what node a **pod can select**
