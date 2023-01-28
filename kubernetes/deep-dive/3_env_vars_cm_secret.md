@@ -29,7 +29,7 @@
   env:
     - name: env-var-name
       valueFrom:
-        configMapRef:
+        configMapKeyRef:
           name: cm-name
           key: key-inside-cm
   ```

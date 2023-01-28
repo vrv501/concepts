@@ -9,7 +9,7 @@ Ex: ensuring we don’t use public registreis, ensuring probes are defined on wo
 `$ kube-apiserver -h | grep enable-admission-plugins`  
 or check the pod manifest for kube-api for term "admission-plugins"
 
-- You can also disable admission plugins by specifying `dismiss-admission-plugins` along with admission controllers to disable
+- You can also disable admission plugins by specifying `disable-admission-plugins` along with admission controllers to disable
 
 Types of admission Controllers:
 - Validating: Just allow/deny manifests
