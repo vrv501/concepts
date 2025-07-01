@@ -6,7 +6,7 @@ db.collectionName.find({genre: "Crime"}) // Find all documents where genre array
 db.collectionName.find({genre: ["Crime"]}) // Find all documents where genre array contains only "Crime" and no other value
 
 
-// Use projection operators to return first matching field(not entire document because we are using projection)
+// Use projection operators to return first matching element inside array(not entire document because we are using projection)
 db.collectionName.find({}, { genres: { $elemMatch: { $eq: "Crime" } } })
 
 // SPECIAL CASE
@@ -29,7 +29,7 @@ db.collectionName.find({ "hobbies": { $elemMatch: { $eq: "cricket" } } })
 db.collectionName.find({}, { comments: { $elemMatch: { $eq: "Great picture!" } } })
 
 // $: Used to return the first element of an array that matches the specified condition
-db.collectionName.find({genres: "drama"}, { "genres.$": 1 }) // Returns only the first genre that matches "drama" in the genres array
+db.collectionName.find({genres: "drama"}, { "genres.$": 1 }) // Returns only the element(first match) that matches "drama" in the genres array
 
 // $elemMatch: Used to return only the first element of an array that matches the specified condition
 db.collectionName.find({}, { comments: { $elemMatch: { $eq: "Great picture!" } } }) // Returns only the first comment with text "Great picture!"
