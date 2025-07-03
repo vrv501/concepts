@@ -19,7 +19,8 @@ db.collectionName.find({ "network.country.name": { $ne: "Canada" } }) // This wi
 // array operators
 db.collectionName.find({ "tags": { $all: ["tag1", "tag2"] } }) // Find documents where 'tags' array contains both "tag1" and "tag2" in any order along with any other elements
 db.collectionName.find({ "tags": { $size: 3 } }) // Find documents where 'tags' array has exactly 3 elements
-db.collectionName.find({ $expr: {$gte: [{$size: "$tags"}, 3]} }) // Find documents where 'tags' array has atleast 3 elements
+db.collectionName.find({ $expr: {$gte: [{$size: {$ifNull: ["$tags", []]}}, 3]} }) // Find documents where 'tags' array has atleast 3 elements
+                                                                                  // If tags is missing then it will be substituted with [], which $size can calculate
 db.collectionName.find({ "hobbies": { $elemMatch: { name: "Shuttle", outdoorSport: true } } }) // Find documents wherehobbies is array of documents. it must find atleast one embedded document which has name and outdoorSport fields in same document
                                                                                               // without it if we use and along with "hobbies.name" and "hobbies.outdoorSport", it will return documents where any one of the elements in the hobbies array has name set to "Shuttle" and any other element has outdoorSport set to true
 db.collectionName.find({ "hobbies": { $elemMatch: { $eq: "cricket" } } }) 
