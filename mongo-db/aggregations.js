@@ -152,7 +152,7 @@ db.movies.aggregate([
         { $limit: 3 }
       ],
       "totalCount": [
-        { $count: "count" }
+        { $count: "count" } // count of all documents will be stored as field called count
       ]
   }}
 ])
