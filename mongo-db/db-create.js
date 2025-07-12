@@ -33,6 +33,29 @@ db.collectionName.insertOne(
     { writeConcern: { w: 1, j: true } } 
 )
 
-
 // by default all insertOne/operationOne are atomic
 // whereas operationMany are not atomic
+
+// Numeric DataTypes
+db.collectionName.insertOne(
+    { title: "Picture 4", money: 234 }, // by default js shell uses double(64bit) for numbers
+)
+
+db.collectionName.insertOne(
+    { title: "Picture 4", money: NumberInt("132123") }, // use NumberInt to store 32bit integer. Inside its 
+    // preferred to use string representation of integer because js shell will convert it to double      
+)
+
+db.collectionName.insertOne(
+    { title: "Picture 4", money: NumberLong("132123") }, // use NumberLong to store 64bit integer. Inside its 
+    // preferred to use string representation of number     
+)
+
+db.collectionName.insertOne(
+    { title: "Picture 4", money: NumberDecimal("132123.123123") }, // use NumberDecimal to store 128bit decimal number
+    // Inside its preferred to use string representation of number. Its recommnded for monetary values
+)
+
+
+
+
