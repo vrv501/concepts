@@ -147,9 +147,14 @@ db.data.aggregate([
 // Use facet to run multiple aggregation pipelines as different fields at once
 db.movies.aggregate([
   { $facet: {
+       avgOrderVal: [
+               {$unwind: "$items"}, 
+               {$project: {_id: 0, totalRevenue: {$sum: {$multiply: ["$items.qty", "$items.price"]}}}},
+                {$group: {_id: null, avgRevenue: {$avg: "$totalRevenue"}}}, // if you want to merge all documents to compute something
+               {$project: {_id: 0}}
+           ],
       "recentlyReleased": [
         { $sort: { year: -1 }},
-        {$group: {_id: null, avgRevenue: {$avg: "$totalRevenue"}}}, // if you want to merge all documents to compute something
         { $limit: 3 }
       ],
       "totalCount": [
