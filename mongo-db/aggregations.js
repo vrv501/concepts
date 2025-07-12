@@ -144,7 +144,53 @@ db.data.aggregate([
     }
 ])
 
+// Use facet to run multiple aggregation pipelines as different fields at once
+db.movies.aggregate([
+  { $facet: {
+      "recentlyReleased": [
+        { $sort: { year: -1 }},
+        { $limit: 3 }
+      ],
+      "totalCount": [
+        { $count: "count" }
+      ]
+  }}
+])
 
+db.orders.aggregate([
+  {$lookup: {
+    from: "customers",
+    localField: "customer",
+    foreignField: "name",
+    as: "customerData"
+  }},
+  {$unwind: "$customerData"},
+  {$unwind: "$items"},
+  {$group: {
+    _id: "$customerData.address.city",
+    totalRevenue: {$sum: {$multiply: ["$items.qty", "$items.price"]}} // you can multiply different scalar valued fields and combine 
+                                                                      // their summation for different docs grouped by id
+  }}
+])
+
+db.orders.aggregate([
+  {
+    $lookup: {
+      from: "customers",
+      localField: "customer",
+      foreignField: "name",
+      as: "customerData"
+    }
+  },
+  {
+    $project: {
+      orderId: 1,
+      _id: 0,
+      customerName: "$customer",
+      customerCity: {$arrayElemAt: ["$customerData.address.city", 0]} // use to extract array element
+    }
+  }
+])
 
 // Stages shown above like $match, $group, and $project can be used in any order. 
 // The stages can also be used multiple times in the same pipeline.
