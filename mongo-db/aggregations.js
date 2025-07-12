@@ -149,6 +149,7 @@ db.movies.aggregate([
   { $facet: {
       "recentlyReleased": [
         { $sort: { year: -1 }},
+        {$group: {_id: null, avgRevenue: {$avg: "$totalRevenue"}}}, // if you want to merge all documents to compute something
         { $limit: 3 }
       ],
       "totalCount": [
