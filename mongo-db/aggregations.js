@@ -6,7 +6,7 @@
 db.data.aggregate([
     {$match: {age: {$gt: 50}}}, // this is similar to filters used with find()
     {$group: {
-        _id: {gender: "$gender"}, // this field is mandatory
+        _id: {gender: "$gender", name: "$name"}, // this field is mandatory. You can also use multipleFields as _id to group them as combo 
         totalPersons: {$sum : 1}, // new fields. Sum of all grouped documents per id
         avgAge: {$avg: "$dob.age"}, // new field. AverageSum of dob.age of all documents grouped per id
     }},
