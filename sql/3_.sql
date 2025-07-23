@@ -1,3 +1,8 @@
+-- Imagine joins as placing different rows of table side-by-side on basis that they match on some common column
+-- When joining ensure that the id you're matching on the other side are unique across the column
+-- Atleast one of table **must** have unique values on the column you're joining. Otherwise it leads
+-- to cartesian explosion with unexpected results
+
 -- Inner Join Similar to Aintersection B
 -- Inner join is symmetrical A intersection B is same as B intersection A
 -- INNER JOIN is same as JOIN 
