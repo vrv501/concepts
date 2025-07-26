@@ -85,6 +85,8 @@ SELECT tableA.c1, tableB.c2 FROM t AS tableA
 INNER JOIN t AS tableB ON tableA.c1 = tableB.c2
 WHERE tableA.c3 = 'some_value';
 
+-- [Correlated sub-queries, EXISTS, Self Joins](https://www.perplexity.ai/spaces/learning-sql-advanced-nKObBmNmR_..sabIxF9ajQ)
+
 
 
 
