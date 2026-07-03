@@ -4,7 +4,7 @@ go 1.24.4
 
 require (
 	github.com/rs/zerolog v1.34.0
-	go.mongodb.org/mongo-driver/v2 v2.2.2
+	go.mongodb.org/mongo-driver/v2 v2.4.2
 )
 
 require (
